@@ -1,120 +1,61 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Main from './components/Main'
+import SignIn from './components/SignIn'
+import Header from './layouts/header'
+import ProductList from './components/ProductList'
+import ProductInfo from './components/ProductInfo'
+import AddProduct from './components/AddProduct'
+
+/**
+ * 라우터 추가 순서
+ * 1. 헤더의 항목 생성 - 경로 설정
+ * 2. 항목 컴포넌트 생성
+ * 3. App.jsx에 임포트하고 경로 설정
+ */
 
 function App() {
-  const [count, setCount] = useState(0)
+  // 로그인 상태 관리
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState('');
+
+  //로그인 핸들러
+  const handleLogin = (username) => {
+    setIsLoggedIn(true); // 로그인 성공시 상태 업데이트
+    setUsername(username) //로그인한 사용자ID 저장
+  }
+
+  //로그아웃 핸들러
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUsername('');
+  }
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+      <section className="app">
+        <BrowserRouter>
+          {/* 헤더 영역 */}
+          <Header 
+            isLoggedIn = {isLoggedIn}
+            username = {username}
+            onLogout = {handleLogout}
+          />
+
+          {/* 본문 영역 */}
+          <div className='contents'>
+            <Routes>
+              <Route path='/' element={<Main />} />
+              <Route path='/products' element={<ProductList />} />
+              {/* :id -> URL에서 동적으로 변하는 부분을 나타냄 */}
+              <Route path="/products/:id" element={<ProductInfo />} />
+              <Route path="/add-product" element={<AddProduct />} />
+              <Route path='/sign-in' element={<SignIn onLogin = {handleLogin}/>} />
+            </Routes>
+          </div>
+        </BrowserRouter>
       </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
     </>
   )
 }
