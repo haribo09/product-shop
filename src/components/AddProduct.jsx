@@ -78,7 +78,6 @@ const AddProduct = () => {
                         name="description"
                         onChange={handleChange}
                         rows={5}
-                        cols={30}
                         placeholder="상품 설명을 입력해주세요"
                     />
                 </div>

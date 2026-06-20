@@ -70,6 +70,75 @@
 }
 
 /* 상품 정보 스타일 */
+.product-details {
+  width: 40%;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #eee;
+  text-align: start;
+}
+.product-details p {
+  margin: 16px;
+}
 .btn-list {
-  margin: 15px;
+  margin: 20px;
+}
+.btn-list button {
+  padding: 6px 12px;
+}
+
+/* 상품 등록 스타일 */
+.add-form {
+  width: 40%;
+  margin: 20px auto;
+  text-align: start;
+}
+.add-form label {
+  display: block;
+  margin: 6px;
+}
+.add-form input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.add-form textarea {
+  resize: none;
+}
+.add-form button {
+  padding: 8px 16px;
+  background-color: #28a745;
+  color: #eee;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* 로그인 스타일 */
+.signin-form {
+  width: 30%;
+  margin: 20px auto;
+  text-align: start;
+}
+.signin-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.signin-form button {
+  width: 100%;
+  padding: 8px 16px;
+  margin-left: 3%;
+  background-color: #28a745;
+  color: #eee;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
 }

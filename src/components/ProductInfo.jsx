@@ -16,8 +16,8 @@ const ProductInfo = () => {
     }
 
     return(
-        <div>
-            <h3>상품 ID: {id}</h3>
+        <div className="product-details">
+            <p>상품 ID: {id}</p>
             <p>이름: {product.name}</p>
             <p>가격: {product.price}</p>
             <p>상세: {product.description}</p>
