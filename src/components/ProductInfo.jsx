@@ -23,7 +23,9 @@ const ProductInfo = () => {
             <p>상세: {product.description}</p>
 
             <div>
-                <button onClick={doClick}>목록 보기</button>
+                <button className="btn-list"
+                    onClick={doClick}>목록 보기
+                </button>
             </div>
         </div>
     )

@@ -34,3 +34,42 @@
 .contents {
   margin-top: 30px;
 }
+
+/* 상품목록 스타일 */
+.table-list {
+  margin: 16px auto;
+  width: 60%; /* %(가변크기) - 브라우저 너비의 60% */
+  border-collapse: collapse;
+}
+
+.table-list th, td {
+  border: 1px solid #ccc;
+  padding: 6px;
+}
+
+.table-list thead {
+  background-color: #eee;
+}
+
+.table-list tr a {
+  color: #333;
+  text-decoration: none;
+}
+
+.table-list tr a:hover {
+  text-decoration: underline;
+}
+
+.btn-add {
+  text-align: right;
+  margin-right: 20%;
+}
+
+.btn-add button {
+  padding: 6px 12px;
+}
+
+/* 상품 정보 스타일 */
+.btn-list {
+  margin: 15px;
+}
