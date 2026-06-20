@@ -49,8 +49,8 @@ function App() {
               <Route path='/' element={<Main />} />
               <Route path='/products' element={<ProductList />} />
               {/* :id -> URL에서 동적으로 변하는 부분을 나타냄 */}
-              <Route path="/products/:id" element={<ProductInfo />} />
-              <Route path="/add-product" element={<AddProduct />} />
+              <Route path='/products/:id' element={<ProductInfo />} />
+              <Route path='/add-product' element={<AddProduct />} />
               <Route path='/sign-in' element={<SignIn onLogin = {handleLogin}/>} />
             </Routes>
           </div>

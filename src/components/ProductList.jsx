@@ -27,7 +27,7 @@ const ProductList = () => {
             </table>
             {/* 상품 등록 버튼 */}
             <div className="btn-add">
-                <Link to='add-product'><button>상품 등록하기</button></Link>
+                <Link to='/add-product'><button>상품 등록하기</button></Link>
             </div>
 
             {/* <ul>
