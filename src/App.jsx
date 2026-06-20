@@ -35,7 +35,7 @@ function App() {
   return (
     <>
       <section className="app">
-        <BrowserRouter>
+        <BrowserRouter basename='/product-shop/'>
           {/* 헤더 영역 */}
           <Header 
             isLoggedIn = {isLoggedIn}
